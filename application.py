@@ -23,5 +23,12 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index():
-    books = db.execute("SELECT * FROM books limit 10").fecthall()
-    return render_template("index.html",books = books) 
+    books = db.execute("SELECT title FROM books limit 10").fetchall()
+    for book in books:
+        print(book.title)
+    return render_template("index.html",books = books)
+
+@app.route("/home")
+def home():
+    #users = db.execute("SELECT id, username FROM users WHERE username = :username", {"username": name} )
+    return render_template("home.html")
