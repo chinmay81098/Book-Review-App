@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block heading %}
+    List of books
+{% endblock%}
+
+{% block body %}
+    <ul>
+        {% for book in books%}
+        <li>{{ book.title}}</li>
+        {% endfor %}
+    </ul>
+{% endblock%}

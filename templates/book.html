@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Book Details
+{% endblock %}
+
+{% block body %}
+    <h2>
+        {{book.book_id}},
+        {{book.title}},
+        {{book.author}},
+        {{book.year}}
+    </h2>
+
+    <h2>Reviews</h2>
+    {% for rev in reviews %}
+    <li>{{rev.review}}</li>
+    {% endfor %}
+    
+{% endblock %}
