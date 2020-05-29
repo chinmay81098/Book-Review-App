@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block heading %}
+    {% if results == None %}
+        No match found
+    {% else %}
+        Match Found
+    {% endif %}
+
+{% endblock %}
+
+{% block body%}
+    <!--{% if results != None%}
+        ul>
+            {% for result in results %}
+                <li>{{ result }}</li>
+            {% endfor %}
+        </ul>
+        <h3>{{ results }}</h3>
+        <br>
+        <a href="{{ url_for('home')}}">Go back</a>
+    {% else %}
+        <a href="{{ url_for('home')}}">Go back</a>
+    {% endif %}-->
+    {{ results }}
+{% endblock %}
+
+
+
