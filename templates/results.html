@@ -2,28 +2,27 @@
 
 
 {% block heading %}
-    {% if results == None %}
-        No match found
-    {% else %}
+    {% if results %}
         Match Found
+    {% else %}
+        No Match Found
     {% endif %}
 
 {% endblock %}
 
 {% block body%}
-    <!--{% if results != None%}
-        ul>
+    {% if results %}
+        <ul>
             {% for result in results %}
-                <li>{{ result }}</li>
+                <a href="{{ url_for('bookPage',id = result.book_id )}}"><li>{{ result.title }}</li>
             {% endfor %}
         </ul>
-        <h3>{{ results }}</h3>
+
         <br>
         <a href="{{ url_for('home')}}">Go back</a>
     {% else %}
         <a href="{{ url_for('home')}}">Go back</a>
-    {% endif %}-->
-    {{ results }}
+    {% endif %}
 {% endblock %}
 
 

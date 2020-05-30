@@ -9,4 +9,13 @@
     <input type="text" placeholder="Search by ISBN , title or author" name ="book"/>
     <button type="submit">Search</button>
     </form>
+    
+    {% if results %}
+        <ul>
+            {% for result in results %}
+                <a href="{{ url_for('bookPage',id = result.book_id )}}"><li>{{ result.title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
 {% endblock %}
