@@ -1,14 +1,17 @@
 {% extends "layout.html" %}
 
+
 {% block heading%}
-    Hello,
+    <div style="text-align: center;"> Hello, UserName </div>
 {% endblock %}
 
 {% block body %}
-    <form method="POST" action="">
-    <input type="text" placeholder="Search by ISBN , title or author" name ="book"/>
-    <button type="submit">Search</button>
+<div>
+    <form class="form-inline my-2 my-lg-0" method="POST" action="">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search by ISBN,title or auhtor" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+</div>
     
     {% if results %}
         <ul>
