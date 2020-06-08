@@ -1,4 +1,5 @@
 import os
+import requests
 
 from flask import Flask, session, render_template, request
 from flask_session import Session
@@ -40,9 +41,13 @@ def home():
 
 @app.route("/bookPage/<string:id>",methods=["GET","POST"])
 def bookPage(id):
+    res = requests.get("https://www.goodreads.com/book/review_counts.json", \
+            params={"key": "xDSGzUisMG2BnYn3YR1XQ", "isbns": id})
+    raw = res.json()
+    ratings = raw['books'][0]
     book = db.execute("SELECT * FROM books WHERE book_id = :id",{"id":id}).fetchone()
     reviews = db.execute("SELECT reviews FROM book_reviews WHERE book_id = :id",{"id":id}).fetchall()
-    return render_template("book.html",reviews=reviews,book=book)
+    return render_template("book.html",reviews=reviews,book=book,ratings=ratings)
 
 if __name__ == ' __main__':
     app.config['TEMPLATES_AUTO_RELOAD'] = True
