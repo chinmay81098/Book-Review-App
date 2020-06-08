@@ -28,3 +28,8 @@ body {
 #book-page {
     margin: 25px 75px;
 }
+
+#ratings {
+    display: flex;
+    padding: 5px;
+}
