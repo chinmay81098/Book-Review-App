@@ -32,6 +32,8 @@ def home():
         query = request.form.get("book")
         results = db.execute("SELECT * FROM books WHERE title LIKE :query \
             OR author LIKE :query OR book_id LIKE :query",{"query":query}).fetchall()
+        if len(results) == 0:
+            results = "empty"
         return render_template("home.html",results=results)
     #users = db.execute("SELECT id, username FROM users WHERE username = :username", {"username": name} )
     return render_template("home.html")
@@ -41,3 +43,6 @@ def bookPage(id):
     book = db.execute("SELECT * FROM books WHERE book_id = :id",{"id":id}).fetchone()
     reviews = db.execute("SELECT reviews FROM book_reviews WHERE book_id = :id",{"id":id}).fetchall()
     return render_template("book.html",reviews=reviews,book=book)
+
+if __name__ == ' __main__':
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
