@@ -1,24 +1,29 @@
 {% extends "layout.html" %}
 
 
-{% block heading%}
-    <div style="text-align: center;"> Hello, UserName </div>
-{% endblock %}
-
 {% block body %}
-<div>
-    <form class="form-inline my-2 my-lg-0" method="POST" action="">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search by ISBN,title or auhtor" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<div class="home">
+    <h1> Hello, UserName </h1>
+
+    <div class="form">
+        <form class="" method="POST" action="">
+            <input class="search-bar" name="book" type="search" placeholder="Search by ISBN,title or auhtor" aria-label="Search">
+            <button class="" type="submit">Search</button>
+        </form>
+    </div>
 </div>
-    
+    <div class="results">
     {% if results %}
-        <ul>
-            {% for result in results %}
-                <a href="{{ url_for('bookPage',id = result.book_id )}}"><li>{{ result.title }}</li>
-            {% endfor %}
-        </ul>
+        {% if results == "empty" %}
+            <h3>No Match Found</h3>
+        {%else%}
+            <ul>
+                {% for result in results %}
+                    <a href="{{ url_for('bookPage',id = result.book_id )}}"><li>{{ result.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     {% endif %}
+    </div>
     
 {% endblock %}

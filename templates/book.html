@@ -1,20 +1,18 @@
 {% extends "layout.html" %}
 
-{% block heading %}
-    Book Details
-{% endblock %}
-
 {% block body %}
-    <h2>
-        {{book.book_id}},
-        {{book.title}},
-        {{book.author}},
-        {{book.year}}
-    </h2>
+    <div id="book-page">
+        <div class="book-container">
+            <h3>Book Details</h3>
+            <p><strong>ISBN &#58</strong> {{book.book_id}}</p>
+            <p><strong>Title &#58</strong> {{book.title}}</p>
+            <p><strong>Author &#58</strong> {{book.author}}</p>
+            <p><strong>Year &#58</strong> {{book.year}}</p>
+        </div>
 
-    <h2>Reviews</h2>
-    {% for rev in reviews %}
-    <li>{{rev.review}}</li>
-    {% endfor %}
-    
+        <h2>Reviews</h2>
+        {% for rev in reviews %}
+        <li>{{rev.review}}</li>
+        {% endfor %}
+    </div>
 {% endblock %}

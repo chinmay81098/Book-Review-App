@@ -1,14 +1,4 @@
-{% extends "layout.html" %}
-
-
-{% block heading %}
-    {% if results %}
-        Match Found
-    {% else %}
-        No Match Found
-    {% endif %}
-
-{% endblock %}
+{% extends "home.html" %}
 
 {% block body%}
     {% if results %}
@@ -17,11 +7,8 @@
                 <a href="{{ url_for('bookPage',id = result.book_id )}}"><li>{{ result.title }}</li>
             {% endfor %}
         </ul>
-
-        <br>
-        <a href="{{ url_for('home')}}">Go back</a>
     {% else %}
-        <a href="{{ url_for('home')}}">Go back</a>
+        <h3>No Match Found</h3>
     {% endif %}
 {% endblock %}
 
