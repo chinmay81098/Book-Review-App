@@ -9,10 +9,32 @@
             <p><strong>Author &#58</strong> {{book.author}}</p>
             <p><strong>Year &#58</strong> {{book.year}}</p>
         </div>
+        <div id="ratings">
+            <p><strong>Rating &#58</strong>{{ratings.average_rating}}</p>
+            <p><strong>Total Reviews &#58</strong>{{ratings.reviews_count}}</p>
+        </div>
 
-        <h2>Reviews</h2>
-        {% for rev in reviews %}
-        <li>{{rev.review}}</li>
-        {% endfor %}
+        <div id="reviews">
+            <h2>Reviews</h2>
+            {% for rev in reviews %}
+            <li>{{rev.review}}</li>
+            {% endfor %}
+
+            <h3>Submit a Review</h3>
+            <form class="" method="POST" action="">
+                <label for="rate-scale">Rate this Book</label>
+                <select id="rate-scale">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select><br>
+                <label for="text-review" >Comment</label><br>
+                <textarea id="text-review"></textarea><br>
+                <input type="submit" value="Submit">
+                </form>
+        </div>
+
     </div>
 {% endblock %}
