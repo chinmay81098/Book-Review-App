@@ -1,0 +1,30 @@
+body {
+ height: 100%;
+ width: 100%;   
+}
+
+.section {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.home {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 50%;
+}
+.search-bar {
+    margin-top:30px;
+    width: 100%;
+}
+
+.results {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#book-page {
+    margin: 25px 75px;
+}
