@@ -3,23 +3,23 @@
 
 {% block body %}
 <div class="home">
-    <h1> Hello, UserName </h1>
+    <h1> Welcome, {{name}} </h1>
 
-    <div class="form">
-        <form class="" method="POST" action="">
+    <div>
+        <form  method="POST" action="">
             <input class="search-bar" name="book" type="search" placeholder="Search by ISBN,title or auhtor" aria-label="Search">
             <button class="" type="submit">Search</button>
         </form>
     </div>
 </div>
-    <div class="results">
+    <div>
     {% if results %}
         {% if results == "empty" %}
             <h3>No Match Found</h3>
         {%else%}
             <ul>
                 {% for result in results %}
-                    <a href="{{ url_for('bookPage',id = result.book_id )}}"><li>{{ result.title }}</li>
+                    <a href="{{ url_for('bookPage',isbn = result.book_id )}}"><li>{{ result.title }}</li>
                 {% endfor %}
             </ul>
         {% endif %}

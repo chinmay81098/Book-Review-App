@@ -2,8 +2,8 @@
 
 {% block body %}
     <div id="book-page">
+        <h3>Book Details</h3>
         <div class="book-container">
-            <h3>Book Details</h3>
             <p><strong>ISBN &#58</strong> {{book.book_id}}</p>
             <p><strong>Title &#58</strong> {{book.title}}</p>
             <p><strong>Author &#58</strong> {{book.author}}</p>
@@ -17,23 +17,32 @@
         <div id="reviews">
             <h2>Reviews</h2>
             {% for rev in reviews %}
-            <li>{{rev.review}}</li>
+            <li>
+                <div class="review">
+                    <p><strong>{{rev.username}}</strong> {{rev.rating}}</p>
+                    <p>{{rev.text_reviews}}</p>
+                </div>
+            </li>
             {% endfor %}
 
+
+            {% if status %}
             <h3>Submit a Review</h3>
             <form class="" method="POST" action="">
                 <label for="rate-scale">Rate this Book</label>
-                <select id="rate-scale">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                <select id="rate-scale" name="score">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
                 </select><br>
                 <label for="text-review" >Comment</label><br>
-                <textarea id="text-review"></textarea><br>
+                <textarea id="text-review" name="textreview"></textarea><br>
                 <input type="submit" value="Submit">
                 </form>
+            {% endif %}
+            <p>{{msg}}</p>
         </div>
 
     </div>
