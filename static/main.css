@@ -1,0 +1,50 @@
+/*body {
+ height: 100%;
+ width: 100%;   
+}
+
+.section {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.search-bar {
+    margin-top:30px;
+    width: 100%;
+}
+
+.results {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#book-page {
+    margin: 25px 75px;
+}
+
+#ratings {
+    display: flex;
+    padding: 5px;
+}*/
+
+.content {
+    padding: 0.5rem 1rem;
+}
+.book-container {
+    margin: auto;
+    text-align: center;
+    border: solid black 2px;
+    width: 50%;
+}
+
+#ratings {
+    display: flex;
+    justify-content: center;
+}
+
+#ratings > p {
+    margin: 10px;
+    padding: 20px;
+}
+
