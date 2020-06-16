@@ -1,7 +1,43 @@
-.userAuth {
-    width: 40%;
-    /* border: solid grey; */
-    padding: 20px 20px;
-    margin: auto;
-    /* align-items: center;*/
-}
+
+ nav {   
+    background-color: beige;
+    padding: 0.5rem;
+    border-bottom: solid 1px;
+    box-shadow: 0px 2px;
+ }
+
+ aside {
+    float: right;
+    width: 30%;
+    border: solid black 2px;
+    padding: 10px;
+    margin: 10px 25px;
+    height: 350px;
+ }
+
+ section{
+    padding: 10px;
+    margin: 15px;
+    height: 500px;
+    clear: left;
+ }
+ footer {
+    border-top: solid black 1px;
+    text-align: center;
+    padding-top: 15px;
+ }
+
+ form {
+    margin-top: 2rem;
+ }
+ .btn {
+     width: 50%;
+ }
+ form.form-group {
+    margin-bottom: 2rem;
+ }
+
+ .new-user {
+    text-align: center;
+    margin: 15px;
+ }
