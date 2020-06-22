@@ -12,14 +12,14 @@
         </form>
     </div>
 </div>
-    <div>
+    <div class="results">
     {% if results %}
         {% if results == "empty" %}
             <h3>No Match Found</h3>
         {%else%}
             <ul>
                 {% for result in results %}
-                    <a href="{{ url_for('bookPage',isbn = result.book_id )}}"><li>{{ result.title }}</li>
+                    <li><a href="{{ url_for('bookPage',isbn = result.book_id )}}">{{ result.title }}</a></li>
                 {% endfor %}
             </ul>
         {% endif %}
