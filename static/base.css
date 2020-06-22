@@ -9,10 +9,11 @@
  aside {
     float: right;
     width: 30%;
-    border: solid black 2px;
-    padding: 10px;
+    padding: 20px;
     margin: 10px 25px;
     height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
  }
 
  section{
