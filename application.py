@@ -84,19 +84,19 @@ def home():
         if request.method == "POST":
             query = request.form.get("book")
             results = db.execute("SELECT * FROM books WHERE title LIKE :query \
-            OR author LIKE :query OR book_id LIKE :query",{"query":query}).fetchall()
+            OR author LIKE :query OR book_id = :query1 OR cast(year as varchar) = :query1",{"query":"%"+query+"%","query1":query}).fetchall()
             if len(results) == 0:
                 results = "empty"
-            return render_template("home.html",name = session['username'],results=results)
-        return render_template("home.html",name = session['username'])
+            return render_template("home.html",results=results)
+        return render_template("home.html")
     return redirect(url_for('login'))
 
 @app.route("/bookPage/<string:isbn>",methods=["GET","POST"])
 def bookPage(isbn):
     msg = ""
     if 'loggedIn' in session:
-        if request.method == "POST" and request.form.get('score') and request.form.get('textreview'):
-            score = request.form.get("score")
+        if request.method == "POST" and request.form.get('rating') and request.form.get('textreview'):
+            score = request.form.get("rating")
             textreview = request.form.get("textreview")
             db.execute("INSERT INTO book_reviews (book_id,username,rating,text_reviews)\
                 VALUES (:book_id, :name, :rating, :text)",\
@@ -114,9 +114,12 @@ def bookPage(isbn):
         book = db.execute("SELECT * FROM books WHERE book_id = :id",{"id":isbn}).fetchone()
         reviews = db.execute("SELECT * FROM book_reviews WHERE book_id = :id",{"id":isbn}).fetchall()
         status = True
-        for r in reviews:
-            if r[1] == session['username']:
-                status=False
+        if len(reviews) == 0:
+            reviews = "empty"
+        else:
+            for r in reviews:
+                if r[1] == session['username']:
+                    status=False
         return render_template("book.html",reviews=reviews,book=book,ratings=ratings,msg=msg,status=status)
 
     return redirect(url_for('login'))
