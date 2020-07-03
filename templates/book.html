@@ -1,49 +1,67 @@
 {% extends "layout.html" %}
 
 {% block body %}
-    <div id="book-page">
-        <h3>Book Details</h3>
-        <div class="book-container">
+<div id="top-part">
+    <div class="wrapper">
+    <div class="book-container">
             <p><strong>ISBN &#58</strong> {{book.book_id}}</p>
             <p><strong>Title &#58</strong> {{book.title}}</p>
             <p><strong>Author &#58</strong> {{book.author}}</p>
             <p><strong>Year &#58</strong> {{book.year}}</p>
-        </div>
-        <div id="ratings">
-            <p><strong>Rating &#58</strong>{{ratings.average_rating}}</p>
-            <p><strong>Total Reviews &#58</strong>{{ratings.reviews_count}}</p>
-        </div>
-
-        <div id="reviews">
-            <h2>Reviews</h2>
-            {% for rev in reviews %}
-            <li>
-                <div class="review">
-                    <p><strong>{{rev.username}}</strong> {{rev.rating}}</p>
-                    <p>{{rev.text_reviews}}</p>
-                </div>
-            </li>
-            {% endfor %}
-
-
-            {% if status %}
-            <h3>Submit a Review</h3>
-            <form class="" method="POST" action="">
-                <label for="rate-scale">Rate this Book</label>
-                <select id="rate-scale" name="score">
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                </select><br>
-                <label for="text-review" >Comment</label><br>
-                <textarea id="text-review" name="textreview"></textarea><br>
-                <input type="submit" value="Submit">
-                </form>
-            {% endif %}
-            <p>{{msg}}</p>
-        </div>
-
+            <p><strong>Rating &#58</strong> {{ratings.average_rating}}</p>
+            <p><strong>Total Reviews &#58</strong> {{ratings.reviews_count}}</p>
     </div>
+    </div>
+    <div class="wrapper">
+    <div class="submit-box">
+        {% if status%}
+            <form method="POST">
+                <div class="rating">
+                    <p>Rating:</p>
+                    <label for="1">1</label>
+                    <input type="radio" id="1" name="rating" value=1>
+                    <label for="2">2</label>
+                    <input type="radio" id="2" name="rating" value=2>
+                    <label for="3">3</label>
+                    <input type="radio" id="3" name="rating" value=3>
+                    <label for="4">4</label>
+                    <input type="radio" id="4" name="rating" value=4>
+                    <label for="1">5</label>
+                    <input type="radio" id="5" name="rating" value=5>
+                </div>
+
+                <div class="text-box">
+                    <textarea name="textreview"></textarea>
+                </div>
+                <p>{{msg}}</p>
+                <button type="submit">Add Reveiw</button>
+            </form>
+        {% else %}
+            <div>
+                <h3>You have Reviewed this Book!</h3>
+            </div>
+        {%endif%}
+    </div>
+    </div>
+</div>
+<div class="bottom-part">
+    <div id="reviews">
+        {% if reviews != "empty" %}
+            <ul>
+            {% for rev in reviews %}
+                <li>
+                    <div class="review">
+                        <p><strong>{{rev.username}}</strong> rated {{rev.rating}} stars</p>
+                        <p>{{rev.text_reviews}}</p>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <div class="empty-msg">
+                <h4>NO REVIEWS</h4>
+            </div>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

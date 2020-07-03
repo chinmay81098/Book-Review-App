@@ -1,0 +1,144 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#container {
+    min-height: 100%;
+}
+.content {
+    padding: 0.5rem 1rem;
+    margin: 5%;
+}
+
+#bar {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#top-part {
+    display: flex;
+    margin-bottom: 50px;
+}
+.book-container {
+    /* text-align: center; */
+    border: solid black 2px;
+    width: 60%;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.submit-box {
+    margin: 0 auto;
+    width: 60%;
+}
+.text-box textarea {
+    width: 100%;
+    height: 160px;
+}
+.rating {
+    display: flex;
+    align-items: baseline;
+    width: 20%;
+    justify-content: space-between;
+}
+.wrapper {
+    width: 50%;
+}
+#reviews {
+    margin: 20px auto;
+    width: 80%;
+}
+#reviews ul{
+    padding: 0;
+    margin: 0;
+}
+#reviews li {
+    list-style: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(216, 241, 188);
+    margin-bottom: 15px;
+}
+
+.empty-msg {
+    text-align: center;
+    border-radius: 10px;
+    background-color: #eca893;
+    padding: 10px;
+}
+.navtop {
+        width: 100%;
+        height: 60px;
+        border: 0;
+        background: #4e4848;
+}
+.navtop nav {
+    display: flex;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+nav h2, nav a {
+    display: inline-flex;
+    color: white;
+    align-items: center;
+}
+nav h2 {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    margin-left: 1rem;
+}
+nav {
+    display: inline;
+}
+nav a {
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 0 30px;
+}
+nav a:hover{
+    color: rgb(238, 232, 232);
+    text-decoration: none;
+}
+nav a i {
+    padding: 0 2px;
+}
+#results {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+#results ul {
+    padding: 0;
+    margin: 0;
+}
+#results li {
+    list-style: none;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: wheat;
+    margin-bottom: 10px;
+
+}
+.flexItem {
+    margin-right: 5px;
+}
+.details {
+    display: flex;
+}
+footer {
+    position: fixed;
+    background-color: rgba(0,0,0,0.2);
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+ }
+footer p {
+    margin: 10px 0;
+}

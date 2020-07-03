@@ -2,17 +2,18 @@
 <html>
     <head>
         <title>Book Review Website</title>
-        <link rel="stylesheet" href="{{ url_for('static',filename='main.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='main1.css')}}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     </head>
 
     <body>
+      <div id="container">
       <header class="navtop">
         <nav>
-          <h2>Website Name</h2>
+          <h2>BOOKS</h2>
             <a href="{{ url_for('home')}}"><i class="fas fa-home"></i>Home</a>
-            <a href="{{ url_for('home')}}"><i class="fas fa-user-circle"></i>Profile</a>
+            <!--a href="{{ url_for('home')}}"><i class="fas fa-user-circle"></i>Profile</a-->
             <a href="{{ url_for('logout')}}"><i class="fas fa-sign-out-alt"></i>Logout</a>
         </nav>
       </header>
@@ -21,9 +22,10 @@
             {% endblock %}
         </div>
 
-      <!--footer>
-        <p>The creator of this website is Chinmay Jain</p>
-      </footer-->
+      <footer>
+        <p>Developed with <i class="fa fa-heart"></i> by Chinmay Jain</p>
+      </footer>
+      </div>
     </body>
 
 </html>

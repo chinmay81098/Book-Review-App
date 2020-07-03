@@ -1,16 +1,28 @@
+html,body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+}
 
- nav {   
-    background-color: beige;
-    padding: 0.5rem;
-    border-bottom: solid 1px;
-    box-shadow: 0px 2px;
+#container {
+   min-height: 100%;
+   position: relative;
+}
+nav {   
+   background-color: #1d2023;
+   padding: 0.5rem;
+   /* border-bottom: solid 1px; */
+   /* box-shadow: 0px 2px; */
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   color: white;
  }
 
- aside {
-    float: right;
+
+.login-box {
+    /*float: right;*/
     width: 30%;
     padding: 20px;
-    margin: 10px 25px;
+    margin: 5% auto;
     height: 350px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
@@ -23,11 +35,17 @@
     clear: left;
  }
  footer {
-    border-top: solid black 1px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 50px;
     text-align: center;
-    padding-top: 15px;
+    bottom: 0;
  }
 
+footer p {
+   margin: 10px 0;
+}
  form {
     margin-top: 2rem;
  }

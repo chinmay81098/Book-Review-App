@@ -2,28 +2,33 @@
 
 
 {% block body %}
-<div class="home">
-    <h1> Welcome, {{name}} </h1>
-
-    <div>
+<div id="bar">
         <form  method="POST" action="">
             <input class="search-bar" name="book" type="search" placeholder="Search by ISBN,title or auhtor" aria-label="Search">
-            <button class="" type="submit">Search</button>
+            <button  type="submit">Search</button>
         </form>
-    </div>
 </div>
-    <div class="results">
-    {% if results %}
-        {% if results == "empty" %}
-            <h3>No Match Found</h3>
+    <div id="results">
+    {% if results%}
+        {% if results != "empty"%}
+        <ul>
+            {% for result in results %}
+            <li>
+                <p><strong>Title &#58</strong> <a href="{{url_for('bookPage',isbn=result.book_id)}}"> {{ result.title }} </a></p>
+                <div class="details">
+                    <p class="flexItem"><strong>Author &#58</strong> {{ result.author }} </p>
+                    <p class="flexItem"><strong>ISBN &#58</strong>  {{ result.book_id }} </p>
+                    <p class="flexItem"><strong>Year &#58</strong>  {{ result.year }} </p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
         {%else%}
-            <ul>
-                {% for result in results %}
-                    <li><a href="{{ url_for('bookPage',isbn = result.book_id )}}">{{ result.title }}</a></li>
-                {% endfor %}
-            </ul>
+            <div id="nomatch">
+                <p>No Matches Found</p>
+            </div>
         {% endif %}
-    {% endif %}
+    {%endif%}
     </div>
     
 {% endblock %}
